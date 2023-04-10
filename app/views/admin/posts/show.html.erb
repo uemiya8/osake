@@ -1,0 +1,29 @@
+<div class="container">
+  <h4>投稿詳細</h4>
+  <div class="row">
+    <div class="col-sm-4">
+      <%= image_tag @post.get_image(200,200) %>
+    </div>
+    <div class="col-sm-8">
+      <table>
+        <tbody>
+          <tr>     
+            <th>お酒の名前</th>
+            <td><%= @post.liquor.name %></td>
+          </tr>
+          <tr>     
+            <th>飲んでみた感想</th>
+            <td><%= @post.introduction %></td>
+          </tr>
+          <tr>     
+            <th>ジャンル</th>
+            <td><%= @post.genre&.name %></td>
+          </tr>
+          <tr>
+           <td><%= link_to "編集する", edit_admin_post_path(@post.id), class: "btn btn-sn btn-success" %></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

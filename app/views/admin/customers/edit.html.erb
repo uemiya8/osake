@@ -1,0 +1,24 @@
+<div class="container">
+ <div class="row">
+  <div class="col-sm-12 col-md-8 col-lg-6 px-5 px-sm-0 mx-auto">
+
+<h4><%= @customer.full_name %>さんの会員情報編集</h4>
+
+<%= form_with model: @customer,url:admin_customer_path(@customer.id) do |f| %>
+   <p>会員ID</p>
+   <%= @customer.id %>
+   <p>氏名</p>
+   <%= f.text_field :first_name %><%= f.text_field :last_name %>
+   <p>メールアドレス</p>
+   <%= f.text_field :email %>
+   <p>会員ステータス</p>
+    <%= f.radio_button :is_active, :sale %>
+     <%= f.label :is_active_true, "有効" %>
+    <%= f.radio_button :is_active, :stop %>
+     <%= f.label :is_active_false, "無効" %>
+   <%= f.submit '変更を保存', class: "btn btn-sn btn-success" %>
+ 
+ <% end %>
+  </div>
+ </div>
+</div>

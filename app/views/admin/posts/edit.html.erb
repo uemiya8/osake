@@ -1,0 +1,19 @@
+<div class="container">
+ <div class="row">
+  <div class="col-sm-12 col-md-8 col-lg-6 px-5 px-sm-0 mx-auto">
+   <h4>投稿編集</h4>
+   <%= form_with model: @post, url:admin_post_path(@post.id) do |f| %>
+    <p>投稿画像</p>
+    <%= f.file_field :image, accept: "image/*" %>
+    <p>お酒名</p>
+    <%= f.text_field :name %>
+    <p>飲んでみた感想</p>
+    <%= f.text_area :introduction %>
+    <p>ジャンル</p>
+    <%= f.collection_select :genre_id,Genre.all,:id,:name %>
+   
+    <%= f.submit '変更を保存', class: "btn btn-sn btn-success" %>
+   <% end %>
+  </div>
+ </div>
+</div>
