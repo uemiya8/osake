@@ -1,0 +1,25 @@
+<div class="container">
+ <div class="row">
+  <div class="col-sm-12 col-md-8 col-lg-6 px-5 px-sm-0 mx-auto">
+
+<h4>マイページ</h4>
+
+<h5>登録情報</h5>
+<%= link_to "編集する", edit_customers_path, class: "btn btn-sn btn-success" %>
+<table class="table">
+  <tbody>
+  <tr>
+    <td>氏名</td>
+    <td><%= @customer.last_name %><%= @customer.first_name %></td>
+  </tr>
+  <tr>
+    <td>メールアドレス</td>
+    <td><%= @customer.email %></td>
+  </tr>
+  </tbody>
+  
+   <%= link_to "投稿一覧を見る", public_post_index_path, class:"btn btn-sn btn-success" %>
+</table>
+</div>
+</div>
+</div>

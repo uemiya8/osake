@@ -1,8 +1,6 @@
 class Admin::PostsController < ApplicationController
    def index
-   @post = Post.new
-   @post = Post.all
-  end
+   end
   
   def show
    @post = Post.find(params.id)
@@ -12,7 +10,7 @@ class Admin::PostsController < ApplicationController
   @post = Post.find(params[:id])
    @post.update(post_params)
    redirect_to admin_post_path(@post.id)
- end
+  end
  
  def create
   post = Post.new(post_params)

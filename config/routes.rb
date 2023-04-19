@@ -6,11 +6,11 @@ Rails.application.routes.draw do
    resources :customers, only:[:index, :show, :edit, :update]
    get 'customers/unsubscribe' =>'customers#unsubscribe'
    patch 'customers/withdraw' => 'customers#withdraw'
-   resources :post, only:[:index, :show, :new, :create, :update]
+   resources :posts, only:[:index, :show, :new, :create, :update]
    delete '/post/destroy_all' => 'post#destroy_all'
-   root to: 'homes#top'
    get 'customers/my_page' =>'customers#show'
   end
+   root to: 'public/homes#top'
   
   
   namespace :admin do
