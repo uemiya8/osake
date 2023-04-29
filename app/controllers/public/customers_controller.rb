@@ -15,17 +15,21 @@ class Public::CustomersController < ApplicationController
   else
     @customer = Customer.all
     render :edit
-   end
   end
+ end
   
   def update
     @customer = current_customer
      if  @customer.update(customer_params)
-       redirect_to public_customers_path
+       redirect_to public_customer_path(@customer)
      else
       @customer = Customer.all
       render :edit
      end
+  end
+  
+  def unsubscribe
+   @customer = current_customer
   end
   
   def withdraw
@@ -38,5 +42,5 @@ class Public::CustomersController < ApplicationController
   def customer_params
   params.require(:customer).permit(:name, :email)
   
-end
+  end
 end

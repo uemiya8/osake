@@ -1,0 +1,24 @@
+<h3>投稿一覧</h3>
+<div class="container px-5 px-sm-0">
+<div class="row">
+ <div class="col-md-3" "offset-md-1">
+  <div class="d-flex flex-row bd-highlight mb-3">
+   <% @post.each do |post| %>
+   
+    
+      <div class="p-2 bd-highlight">
+       <%= link_to post_path(post.id) do %> 
+       <%= image_tag post.get_image(100,100) %>
+     
+      <%= liquors.name %>
+      <%= customer.name %>
+      <%= post.created_at.strftime('%Y/%m/%d') %>
+      </div>
+     <% end %>
+    
+   
+   <% end %>
+  </div>
+ </div>
+</div>
+</div>

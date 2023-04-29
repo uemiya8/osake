@@ -1,2 +1,3 @@
 class Liquor < ApplicationRecord
+
 end

@@ -10,3 +10,6 @@
   email: "admin@gmail.com",
   password: "111116"
 )
+
+Genre.create!(
+ name: "ビール")

@@ -1,0 +1,27 @@
+<div class="container">
+ <div class="row">
+  <div class="col-sm-12 col-md-8 col-lg-6 px-5 px-sm-0 mx-auto">
+    
+<h4>投稿画面</h4>
+<%= form_with model: @post,url:public_posts_path do |f| %>
+
+<table>
+  <tbody>
+    <tr>
+      <td>お酒の名前</td>
+  　　<td><%= f.text_field :liquor_name %></td>
+    </tr>
+    <tr>
+      <td>お酒の度数</td>
+      <td><%= f.text_field :liquor_content %></td>
+    </tr>
+    <tr>
+      <td>飲んだ感想</td>
+      <td><%= f.text_area :comment %></td>
+    </tr>
+    
+    <tr>
+      <td><%= f.submit "投稿する",  class: "btn btn-sn btn-success"  %></td>
+    </tr>
+  </tbody>
+</table>

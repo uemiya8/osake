@@ -3,9 +3,9 @@ Rails.application.routes.draw do
   namespace :public do
    resources :liquor, only:[:index, :create,:show, :edit, :update ]
    resources :genres, only:[:index, :create, :edit, :update]
-   resources :customers, only:[:index, :show, :edit, :update]
    get 'customers/unsubscribe' =>'customers#unsubscribe'
    patch 'customers/withdraw' => 'customers#withdraw'
+   resources :customers, only:[:index, :show, :edit, :update]
    resources :posts, only:[:index, :show, :new, :create, :update]
    delete '/post/destroy_all' => 'post#destroy_all'
    get 'customers/my_page' =>'customers#show'

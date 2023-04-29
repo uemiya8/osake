@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_04_13_124401) do
+ActiveRecord::Schema.define(version: 2023_04_08_073315) do
 
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -30,36 +30,28 @@ ActiveRecord::Schema.define(version: 2023_04_13_124401) do
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
+    t.string "name", null: false
+    t.boolean "is_deleted", default: false, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "name"
-    t.boolean "is_deleted"
     t.index ["email"], name: "index_customers_on_email", unique: true
     t.index ["reset_password_token"], name: "index_customers_on_reset_password_token", unique: true
   end
 
   create_table "genres", force: :cascade do |t|
+    t.string "name", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "name"
-  end
-
-  create_table "liquors", force: :cascade do |t|
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.integer "post_id"
-    t.string "liquor"
-    t.string "alcohol_content"
-    t.integer "genre_id"
-    t.string "name"
   end
 
   create_table "posts", force: :cascade do |t|
+    t.integer "genre_id", null: false
+    t.integer "customer_id", null: false
+    t.text "comment", null: false
+    t.string "liquor_name", null: false
+    t.float "liquor_content", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "customer_id"
-    t.text "comment"
-    t.integer "liquor_id"
   end
 
 end

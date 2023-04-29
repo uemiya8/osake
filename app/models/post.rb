@@ -1,6 +1,6 @@
 class Post < ApplicationRecord
   
- belongs_to :genre
+ belongs_to :customer
   
  def get_image(width, height)
   unless image.attached?
@@ -9,5 +9,7 @@ class Post < ApplicationRecord
   end
   image.variant(resize_to_limit: [width, height]).processed
  end
+ 
+
  
 end
