@@ -11,11 +11,11 @@
 
 <h4>新しい投稿</h4>
 <div class="d-flex flex-row bd-highlight mb-3">
-  <% @posts.last(4).each do |item| %>
+  <% @posts.last(4).each do |post| %>
    <div class="p-2 bd-highlight">
-     <%= link_to post_path(post.id) do %> 
-     <%= image_tag item.get_image(100,100) %>
-      <div><%= @liquors.name %></div>
+     <%= link_to public_post_path(post.id) do %> 
+     <%= image_tag post.get_image(100,100) %>
+      <div><%= post.liquor_name %></div>
       
   <% end %>
    </div>

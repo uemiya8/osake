@@ -14,6 +14,7 @@ class Public::PostsController < ApplicationController
   
  def create
   @post = Post.new(post_params)
+  @post.customer_id = current_customer.id
    if @post.save
      redirect_to public_posts_path
    else
@@ -25,5 +26,12 @@ class Public::PostsController < ApplicationController
  def update
     @post =Post.find(params[:id])
  end
+ 
+ private
+ 
+ def post_params
+  params.require(:post).permit(:liquor_name, :liquor_content, :comment, :genre_id)
+ end
+
   
 end

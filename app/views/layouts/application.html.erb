@@ -25,10 +25,13 @@
        <li>
          <%= link_to "ジャンル一覧", public_genres_path %>
        </li>
+       <li>
+         <%= link_to "投稿する", new_public_post_path %>
+       </li>
        
        <% elsif admin_signed_in? %>
         <li>
-          <%= link_to "投稿一覧", admin_posts_path %>
+          <%= link_to "投稿一覧", admin_root_path %>
         </li>
         <li>
           <%= link_to "会員一覧", admin_customers_path %>
