@@ -3,6 +3,9 @@ class Post < ApplicationRecord
  belongs_to :customer
  belongs_to :genre
  
+ validates :liquor_name, presence: true
+ validates :comment,  presence: true
+ 
  has_one_attached :image
  
  def get_image(width, height)

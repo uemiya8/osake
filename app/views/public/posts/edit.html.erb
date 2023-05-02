@@ -2,7 +2,7 @@
  <div class="row">
   <div class="col-sm-12 col-md-8 col-lg-6 px-5 px-sm-0 mx-auto">
    <h4>投稿編集</h4>
-   <%= form_with model: @post, url:admin_post_path(@post.id) do |f| %>
+   <%= form_with model: @post, url:public_post_path(@post.id) do |f| %>
     <%= render 'layouts/error_messages', model: f.object %>
     <p>投稿画像</p>
     <%= f.file_field :image, accept: "image/*" %>

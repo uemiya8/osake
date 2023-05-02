@@ -6,7 +6,7 @@ Rails.application.routes.draw do
    get 'customers/unsubscribe' =>'customers#unsubscribe'
    patch 'customers/withdraw' => 'customers#withdraw'
    resources :customers, only:[:index, :show, :edit, :update]
-   resources :posts, only:[:index, :show, :new, :create, :update]
+   resources :posts, only:[:index, :show, :edit, :new, :create, :update]
    delete '/post/destroy_all' => 'post#destroy_all'
    get 'customers/my_page' =>'customers#show'
   end
@@ -17,8 +17,8 @@ Rails.application.routes.draw do
    resources :liquor, only:[:index, :create,:show, :edit, :update ]
    resources :genres, only:[:index, :create, :edit, :update]
    resources :customers, only:[:index, :show, :edit, :update]
-   resources :post, only:[:index, :show, :create, :update]
-   root to: 'homes#top'
+   resources :posts, only:[:index, :show, :edit, :create, :update]
+   root to: 'posts#index'
   end
  
  devise_for :customers,skip: [:passwords], controllers: {
