@@ -18,6 +18,14 @@ class Public::PostsController < ApplicationController
    @post = Post.new
   end
   
+  
+  def destroy
+    @post = Post.find(params[:id])
+    @post.destroy
+    redirect_to public_posts_path
+  end
+  
+  
   def create
     @post = current_customer.posts.build(post_params)
     if @post.save
@@ -43,7 +51,7 @@ class Public::PostsController < ApplicationController
  private
  
  def post_params
-  params.require(:post).permit(:liquor_name, :liquor_content, :comment, :genre_id)
+  params.require(:post).permit(:liquor_name, :liquor_content, :comment, :genre_id, :image, :is_active)
  end
 
   

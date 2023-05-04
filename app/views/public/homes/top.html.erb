@@ -13,7 +13,7 @@
 <div class="d-flex flex-row bd-highlight mb-3">
   <% @posts.last(4).each do |post| %>
    <div class="p-2 bd-highlight">
-     <%= link_to public_post_path(post.id) do %> 
+     <%= link_to public_post_path(post.id) do %>
      <%= image_tag post.get_image(100,100) %>
       <div><%= post.liquor_name %></div>
       

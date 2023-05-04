@@ -6,7 +6,7 @@ Rails.application.routes.draw do
    get 'customers/unsubscribe' =>'customers#unsubscribe'
    patch 'customers/withdraw' => 'customers#withdraw'
    resources :customers, only:[:index, :show, :edit, :update]
-   resources :posts, only:[:index, :show, :edit, :new, :create, :update]
+   resources :posts, only:[:index, :show, :edit, :new, :create, :update, :destroy]
    delete '/post/destroy_all' => 'post#destroy_all'
    get 'customers/my_page' =>'customers#show'
   end
@@ -16,8 +16,8 @@ Rails.application.routes.draw do
   namespace :admin do
    resources :liquor, only:[:index, :create,:show, :edit, :update ]
    resources :genres, only:[:index, :create, :edit, :update]
-   resources :customers, only:[:index, :show, :edit, :update]
-   resources :posts, only:[:index, :show, :edit, :create, :update]
+   resources :customers, only:[:index, :show, :edit, :update, :destroy]
+   resources :posts, only:[:index, :show, :edit, :create, :update, :destroy]
    root to: 'posts#index'
   end
  

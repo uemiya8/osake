@@ -10,8 +10,6 @@
     <tr>
       <td>ジャンル</td>
       <td>
-        <%#= f.select :genre, ['ビール・発泡酒', 'サワー', 'カクテル', '果実酒', 'サワー', '酎ハイ', '焼酎', 'ブランデー', 'ワイン', '日本酒', 'ウイスキー'], {
-        include_blank: 'お酒の種類を選択してください'}, class: 'genre' %>
         <%= f.collection_select(:genre_id, Genre.all, :id, :name, include_blank: 'お酒の種類を選択してください' ) %>
       </td>
     </tr>
@@ -29,7 +27,7 @@
     </tr>
     <tr>
       <td>画像</td>
-      <td></td>
+      <td><%= f.file_field :image %></td>
     </tr>
     
     <tr>

@@ -14,6 +14,8 @@
     <%= f.collection_select :genre_id,Genre.all,:id,:name %>
    
     <%= f.submit '変更を保存', class: "btn btn-sn btn-success" %>
+    
+    <%= link_to "投稿を削除する", admin_post_path(@post), class: "btn btn-sm btn-danger", method: :delete, "data-confirm" => "本当に消しますか？" %>
    <% end %>
   </div>
  </div>
