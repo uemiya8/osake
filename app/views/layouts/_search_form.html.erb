@@ -1,11 +1,11 @@
 <%= form_with url: url, method: :get do |f| %>
   <div class="form-group">
-    <%= f.label :customer_name %>
-    <%= f.search_field :customer_name, value: params[:customer_name], class: "form-control" %>
+    <%= f.label :会員検索 %>
+    <%= f.search_field :customer_name, value: params[:customer_name] %>
   </div>
   <div class="form-group">
-    <%= f.label :genre_id %>
-    <%= f.collection_select :genre_id, Genre.all, :id, :name, { include_blank: "-----", selected: params[:genre_id] }, { class: "form-control"} %>
+    <%= f.label :ジャンル検索 %>
+    <%= f.collection_select :genre_id, Genre.all, :id, :name, { include_blank: "-----", selected: params[:genre_id] } %>
   </div>
-  <%= f.submit "search" %>
+  <%= f.submit "検索" %>
 <% end %>

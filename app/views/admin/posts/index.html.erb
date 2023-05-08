@@ -1,15 +1,30 @@
-<h3>投稿一覧</h3>
+<table class="table table-hover table-invrse">
+
 <div class="container px-5 px-sm-0">
   <div class="row">
     <div class="col-md-3" "offset-md-1">
       <div class="d-flex flex-row bd-highlight mb-3">
+        <thead>
+          <tr>
+            <th>投稿一覧</th>
+            <th>画像</th>
+            <th>お酒の名前</th>
+            <th>会員の名前</th>
+            <th>投稿日時</th>
+          </tr>
+        </thead>
         <% @posts.each do |post| %>
-          <div class="p-2 bd-highlight">
-            <%= link_to admin_post_path(post) do %> 
-              <%= image_tag post.get_image(100,100) %>
-              <%= post.liquor_name %>
-              <%= post.customer.name %>
-              <%= post.created_at.strftime('%Y/%m/%d') %>
+         
+         <tbody>
+           <tr>
+            <div class="p-2 bd-highlight">
+             <td><%= link_to admin_post_path(post) do %></td> 
+              <td><%= image_tag post.get_image(100,100) %></td>
+              <td><%= link_to post.liquor_name, admin_post_path(post.id) %></td>
+              <td><%= post.customer.name %></td>
+              <td><%= post.created_at.strftime('%Y/%m/%d') %></td>
+             </tr>
+            </tbody>
             <% end %> 
           </div>
         <% end %>
@@ -17,3 +32,4 @@
     </div>
   </div>
 </div>
+</table>

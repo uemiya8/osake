@@ -6,13 +6,18 @@
  <% end %>
  
  
-<table class=table>
- <tr>
+<table class="table table-hover table-invrse">
   <thead>
-  <th>ジャンル</th>
- 　 <% @genres.each do |genre| %>
-    <th><%= link_to "編集する", edit_admin_genre_path(genre.id), class: "btn btn-sn btn-success" %></th>
-    <th><%= genre.name %></th>
-    <% end %>
+   <tr>
+    <th>ジャンル</th>
+   </tr>
   </thead>
+ 　   <% @genres.each do |genre| %>
+  <tbody>
+   <tr>
+    <td><%= genre.name %></td>
+    <td><%= link_to "編集する", edit_admin_genre_path(genre.id), class: "btn btn-sn btn-success" %></td>
+   </tr>
+  </tbody>
  </table> 
+ <% end %>

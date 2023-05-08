@@ -22,22 +22,36 @@
 </div>
 </div>
 
-<h3>投稿一覧</h3>
-<div class="container px-5 px-sm-0">
-<div class="row">
- <div class="col-md-3" "offset-md-1">
-  <div class="d-flex flex-row bd-highlight mb-3">
-   <% @posts.each do |post| %>
-    <div class="p-2 bd-highlight">
-     <%= link_to public_post_path(post.id) do %> 
-      <%= image_tag post.get_image(100,100) %>
-      <%= post.liquor_name %>
-      <%= post.customer.name %>
-      <%= post.created_at.strftime('%Y/%m/%d') %>
-     <% end %> 
+<table class="table table-hover table-invrse">
+ <thead>
+  <tr>
+   <th>投稿一覧</th>
+   <th>画像</th>
+   <th>お酒の名前</th>
+   <th>会員の名前</th>
+   <th>投稿日時</th>
+  </tr>
+ </thead>
+ <% @posts.each do |post| %>
+　<div class="container px-5 px-sm-0">
+　　<div class="row">
+ 　　　<div class="col-md-3" "offset-md-1">
+ 　　　　 <div class="d-flex flex-row bd-highlight3">
+    　　　<div class="p-2 bd-highlight">
+   
+   <tbody>
+    <tr>
+     <td><%= link_to public_post_path(post.id) do %></td>
+     <td><%= image_tag post.get_image(100,100) %></td>
+     <td><%= post.liquor_name %></td>
+     <td><%= post.customer.name %></td>
+     <td><%= post.created_at.strftime('%Y/%m/%d') %></td>
+    </tr>
+   </tbody>
+   <% end %> 
+  <% end %>
     </div>
-   <% end %>
+   </div>
   </div>
  </div>
-</div>
 </div>

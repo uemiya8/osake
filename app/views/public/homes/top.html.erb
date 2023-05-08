@@ -1,21 +1,37 @@
+<table class="table table-hover table-invrse">
+
 <div class="container">
  <div class="row">
-  <div class="col-sm-12 col-md-8 col-lg-6 px-5 px-sm-0 mx-auto">
-
+  <div class="col-md-3" "offset-md-1">
+   <div class="d-flex flex-row bd-highlight mb-3">
   <P>ようこそ<br>
     このサイトはお酒のレビューをするサイトです。</P>
-  
+   </div>
   </div>
  </div>
 </div>
 
-<h4>新しい投稿</h4>
-<div class="d-flex flex-row bd-highlight mb-3">
-  <% @posts.last(4).each do |post| %>
+<thead>
+ <tr>
+  <th>新しい投稿</th>
+  <th>画像</th>
+  <th>お酒の名前</th>
+ </tr>
+</thead>
+<% @posts.last(4).each do |post| %>
+ 
+<tbody>
+ <tr>
+  <div class="card-body">
+  <td><%= link_to public_post_path(post.id) do %></td>
+  <td><%= image_tag post.get_image(100,100) %></td>
+  <td><%= post.liquor_name %></td>
+ </tr>
+</tbody>
    <div class="p-2 bd-highlight">
-     <%= link_to public_post_path(post.id) do %>
-     <%= image_tag post.get_image(100,100) %>
-      <div><%= post.liquor_name %></div>
+     
+     
+      
       
   <% end %>
    </div>

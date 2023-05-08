@@ -12,24 +12,11 @@
    <p>メールアドレス</p>
    <%= f.text_field :email %>
    <p>会員ステータス</p>
-    <%= f.radio_button :is_active, :sale %>
-     <%= f.label :is_active_true, "有効" %>
-    <%= f.radio_button :is_active, :stop %>
-     <%= f.label :is_active_false, "無効" %>
+    <%= f.radio_button :is_deleted, :false %>
+     <%= f.label :is_deleted_false, "有効" %>
+    <%= f.radio_button :is_deleted, :ture %>
+     <%= f.label :is_deleted_ture, "無効" %>
    <%= f.submit '変更を保存', class: "btn btn-sn btn-success" %>
-   <%= link_to "この会員を削除する", admin_customer_path(@customer), class: "btn btn-sm btn-danger", method: :delete, "data-confirm" => "本当に消しますか？" %>
- 
  <% end %>
  
- <div class="d-flex flex-row bd-highlight mb-3">
-   <% @customer.posts.each do |post| %>
-      <div class="p-2 bd-highlight">
-       <%= image_tag post.get_image(100,100) %>
-       <%= post.liquor_name %>
-       <%= post.liquor_content %>%
-      </div>
-   <% end %>
-   </div>
-  </div>
- </div>
-</div>
+ 
