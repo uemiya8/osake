@@ -12,9 +12,11 @@ class Public::CustomersController < ApplicationController
  def create
   @customer = current_customer
   if @customer.save
+    flash[:notice] = "created!"
     redirect_to customer_path(@customer.id)
   else
     @customer = Customer.all
+    flash.now[:alert] = "not created"
     render :edit
   end
  end
@@ -22,9 +24,11 @@ class Public::CustomersController < ApplicationController
   def update
     @customer = current_customer
      if  @customer.update(customer_params)
-       redirect_to public_customer_path(@customer)
+      flash[:notice] = "更新できました。"
+      redirect_to public_customer_path(@customer)
      else
       @customer = Customer.all
+      flash.now[:alert] = "更新できませんでした。"
       render :edit
      end
   end

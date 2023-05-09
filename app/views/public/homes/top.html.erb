@@ -1,40 +1,22 @@
-<table class="table table-hover table-invrse">
-
 <div class="container">
- <div class="row">
-  <div class="col-md-3" "offset-md-1">
-   <div class="d-flex flex-row bd-highlight mb-3">
-  <P>ようこそ<br>
-    このサイトはお酒のレビューをするサイトです。</P>
-   </div>
-  </div>
- </div>
-</div>
-
-<thead>
- <tr>
-  <th>新しい投稿</th>
-  <th>画像</th>
-  <th>お酒の名前</th>
- </tr>
-</thead>
-<% @posts.last(4).each do |post| %>
- 
-<tbody>
- <tr>
-  <div class="card-body">
-  <td><%= link_to public_post_path(post.id) do %></td>
+ <h2>ようこそ
+  このサイトはお酒のレビューをするサイトです。</h2>
+<h4>新しい投稿</h4>
+<table class="table table-hover table-invrse">
+ <thead>
+  <tr>
+   <th>画像</th>
+   <th>お酒の名前</th>
+  </tr>
+ </thead>
+ <tbody>
+ <% @posts.last(4).each do |post| %>
+  <tr data-href="<%= root_path(post) %>">
   <td><%= image_tag post.get_image(100,100) %></td>
   <td><%= post.liquor_name %></td>
  </tr>
+<% end %>
 </tbody>
-   <div class="p-2 bd-highlight">
-     
-     
-      
-      
-  <% end %>
-   </div>
-  <% end %>
- <%= link_to "全ての投稿を見る", public_posts_path %>
-</div>
+</table>
+ <%= link_to "全ての投稿を見る", public_posts_path, class: "btn btn-primary" %>
+ 

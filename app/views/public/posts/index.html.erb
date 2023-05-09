@@ -1,35 +1,30 @@
-<table class="table table-hover table-invrse">
+<div class="container">
+  <h1>投稿一覧</h1>
+  <table class="table table-hover table-invrse">
+    <thead>
+      <tr>
+        <th>画像</th>
+        <th>お酒の名前</th>
+        <th>会員の名前</th>
+        <th>投稿日時</th>
+      </tr>
+    </thead>
+    <tbody>
+    <% @posts.each do |post| %>
+      <tr data-href="<%= public_post_path(post) %>">
+        <td><%= image_tag post.get_image(100,100) %></td>
+        <td><%= post.liquor_name %></td>
+        <td><%= post.customer.name %></td>
+        <td><%= post.created_at.strftime('%Y/%m/%d') %></td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+</div>
 
-<div class="container px-5 px-sm-0">
-  <div class="row">
-    <div class="col-md-3" "offset-md-1">
-      <div class="d-flex flex-row bd-highlight mb-3">
-       <thead>
-        <tr>
-         <th>投稿一覧</th>
-         <th>画像</th>
-         <th>お酒の名前</th>
-         <th>会員の名前</th>
-         <th>投稿日時</th>
-        </tr>
-       </thead>
-       <% @posts.each do |post| %>
-       
-       <tbody>
-        <tr>
-          <div class="card-body">
-         <td><%= link_to public_post_path(post.id) do %></td>
-         <td><%= image_tag post.get_image(100,100) %></td>
-         <td><%= post.liquor_name %></td>
-         <td><%= post.customer.name %></td>
-         <td><%= post.created_at.strftime('%Y/%m/%d') %></td>
-        </tr>
-       </tbody>
-     <% end %> 
-    </div>
-   <% end %>
-    </div>
-   </div>
-  </div>
- </div>
-</table>
+<script>
+  $('tr[data-href]').on('click', (e) => {
+    console.log(e.target.parentNode)
+    window.location = $(e.target.parentNode).data('href')
+  })
+</script>

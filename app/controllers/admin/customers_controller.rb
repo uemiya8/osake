@@ -16,12 +16,14 @@ class Admin::CustomersController < ApplicationController
  def destroy
   @customer = Customer.find(params[:id])
   @customer.destroy
+  flash[:notice] = "削除しました。"
   redirect_to admin_customers_path
  end
   
  def update
   @customer = Customer.find(params[:id])
   if  @customer.update(customer_params)
+   flash[:notice] = "更新できました。"
    redirect_to admin_customer_path
   else
    @customer = customer.all

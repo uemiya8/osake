@@ -15,7 +15,7 @@ Rails.application.routes.draw do
   
   namespace :admin do
    resources :liquor, only:[:index, :create,:show, :edit, :update ]
-   resources :genres, only:[:index, :create, :edit, :update]
+   resources :genres, only:[:index, :create, :edit, :update, :destroy]
    resources :customers, only:[:index, :show, :edit, :update, :destroy]
    resources :posts, only:[:index, :show, :edit, :create, :update, :destroy]
    root to: 'posts#index'
