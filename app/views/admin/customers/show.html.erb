@@ -44,19 +44,12 @@
   </thead>
   <tbody>
   <% @customer.posts.each do |post| %>
-   <tr data-href="<%= admin_post_path(post.id) %>">>
+   <tr>
     <td><%= image_tag post.get_image(100,100) %></td>
-    <td><%= post.liquor_name %></td>
+    <td><%= link_to post.liquor_name, admin_post_path(post.id) %></td>
     <td><%= post.liquor_content %>%</td>
     <td><%= post.created_at.strftime('%Y/%m/%d') %></td>
    </tr>
   </tbody>
    <% end %>
  </table>
- 
- <script>
-  $('tr[data-href]').on('click', (e) => {
-    console.log(e.target.parentNode)
-    window.location = $(e.target.parentNode).data('href')
-  })
-</script>
