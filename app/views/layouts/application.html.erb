@@ -12,33 +12,70 @@
 
   <body>
     <header>
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+          <a class="navbar-brand" href="/">
+           <span>Liqure Review</span>
+          </a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"aria-controls=navbarNavDropdown" aria-controls-"navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation>
+           <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNavDropdown">
+           
       <% if customer_signed_in? %>
-        <ul>
-          <il><%= link_to "マイページ", public_customer_path(current_customer) %></il>
-          <il><%= link_to "ログアウト", destroy_customer_session_path, method: :delete %></il>
-          <li><%= link_to "投稿一覧", public_posts_path %></li>
-          <li><%= link_to "投稿する", new_public_post_path %></li>
+        <ul class="navbar-nav ml-auto">
+          <li>
+            <%= link_to "マイページ", public_customer_path(current_customer), class: 'nav-link text-light' %>
+          </li>
+          <li>
+            <%= link_to "ログアウト", destroy_customer_session_path, method: :delete, class: 'nav-link text-light' %>
+          </li>
+          <li>
+            <%= link_to "投稿一覧", public_posts_path,class: 'nav-link text-light' %>
+          </li>
+          <li>
+            <%= link_to "投稿する", new_public_post_path,class: 'nav-link text-light'%>
+          </li>
         </ul>
-        <%= render 'layouts/search_form', url: public_posts_path %>
+        <%= render 'layouts/search_form', url: public_posts_path  %>
       <% elsif admin_signed_in? %>
-        <ul>
-          <li><%= link_to "投稿一覧", admin_root_path %></li>
-          <li><%= link_to "会員一覧", admin_customers_path %></li>
-          <li><%= link_to "ジャンル一覧", admin_genres_path %></li>
-          <li><%= link_to "ログアウト", destroy_admin_session_path, method: :delete %></li>
+        <ul class="navbar-nav ml-auto">
+          <li>
+            <%= link_to "投稿一覧", admin_root_path,class:'nav-link text-light' %>
+          </li>
+          <li>
+            <%= link_to "会員一覧", admin_customers_path,class:'nav-link text-light' %>
+          </li>
+          <li>
+            <%= link_to "ジャンル一覧", admin_genres_path,class:'nav-link text-light'  %>
+          </li>
+          <li>
+            <%= link_to "ログアウト", destroy_admin_session_path, method: :delete,class:'nav-link text-light' %>
+          </li>
         </ul>
         <%= render 'layouts/search_form', url: admin_posts_path %>
       <% else %>
-        <ul>
-          <il><%= link_to "投稿一覧", public_posts_path %></il>
-          <il><%= link_to "新規登録", new_customer_registration_path %></li>
-          <li><%= link_to "ログイン", new_customer_session_path %></li>
-          <li><%= link_to "トップページ", root_path %></li>
+        <ul class="navbar-nav ml-auto">
+          <il>
+           <%= link_to "投稿一覧", public_posts_path,class:'nav-link text-light' %>
+          </il>
+          <il>
+            <%= link_to "新規登録", new_customer_registration_path, class:'nav-link text-light' %>
+          </li>
+          <li>
+            <%= link_to "ログイン", new_customer_session_path ,class:'nav-link text-light' %>
+          </li>
+          <li>
+            <%= link_to "トップページ", root_path,class:'nav-link text-light' %>
+          </li>
         </ul>
       <% end %>
+        </div>
+      </nav>
     </header>
     <%= notice %>
     <%= alert %>
+    <%= flash[:notice] %>
     <%= yield %>
   </body>
 </html>
