@@ -1,2 +1,6 @@
 @import '~bootstrap/scss/bootstrap';
 @import '~@fortawesome/fontawesome-free/scss/fontawesome';
+
+table th, table td {
+  padding: 8px 16px;
+}
