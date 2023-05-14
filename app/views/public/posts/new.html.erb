@@ -1,42 +1,33 @@
 <div class="container">
- <div class="row">
+ <h4 class="mb-5">投稿画面</h4>
   <div class="col-sm-12 col-md-8 col-lg-6 px-5 px-sm-0 mx-auto">
-    
-<h4>投稿画面</h4>
-<%= form_with model: @post,url:public_posts_path do |f| %>
-
-<table>
-  <tbody>
+  <%= form_with model: @post,url:public_posts_path do |f| %>
+  <table>
+   <tbody>
     <tr>
-      <td>ジャンル</td>
-      <td>
-        <%= f.collection_select(:genre_id, Genre.all, :id, :name, include_blank: 'お酒の種類を選択してください' ) %>
-      </td>
+      <th>ジャンル</th>
+      <td><%= f.collection_select(:genre_id, Genre.all, :id, :name, include_blank: 'お酒の種類を選択してください' ) %></td>
     </tr>
     <tr>
-      <td>お酒の名前</td>
+      <th>お酒の名前</th>
   　　<td><%= f.text_field :liquor_name %></td>
     </tr>
     <tr>
-      <td>お酒の度数</td>
+      <th>お酒の度数</th>
       <td><%= f.text_field :liquor_content %></td>
     </tr>
     <tr>
-      <td>飲んだ感想</td>
+      <th>飲んだ感想</th>
       <td><%= f.text_area :comment %></td>
     </tr>
     <tr>
-      <td>画像</td>
+      <th>画像</th>
       <td><%= f.file_field :image %></td>
-    </tr>
-    
-    <tr>
-      <td><%= f.submit "投稿する",  class: "btn btn-outline-success" %></td>
     </tr>
   </tbody>
 </table>
+<p style="padding-left: 130px;"><%= f.submit "投稿する", class: "btn btn-outline-success" %>
+</p>
 <% end %>
-
-  </div>
  </div>
 </div>

@@ -1,20 +1,32 @@
 <div class="container">
-  <div class="row">
-    <div class="col-md-3">
-     <%= image_tag @post.get_image(100,100) %>
-    </div>
-  
-  <div class="col-md-8  offset-md-1">
-   <div class="field">
-     <h3><%= @post.liquor_name %></h3>
-     <p><%= @post.liquor_content %></p>
-     <p><%= @post.comment %></p>
-     <%= @post.created_at.strftime('%Y/%m/%d') %>
+ <h4 class="mb-5">投稿詳細</h4>
+  <div class="row mx-auto" style="max-width: 600px;">
+   <div class="col-sm-4">
+    <%= image_tag @post.get_image(200,200), width: '200px', height: '200px' %>
+   </div>
+   <div class="col-sm-8">
+    <table class="mb-4">
+     <tbody>
+      <tr>
+       <th style="word-break: keep-all;">お酒の名前</th>
+       <td><%= @post.liquor_name %></td>
+      </tr>
+      <tr>
+        <th style="word-break: keep-all;">度数</th>
+        <td><%= @post.liquor_content %>%</td>
+      </tr>
+      <tr>
+       <th style="word-break: keep-all;">飲んでみた感想</th>
+       <td style= "word-break: break-word"><%= @post.comment %></td>
+      </tr>
+      <tr>
+       <th>投稿日時</th>
+       <td><%= @post.created_at.strftime('%Y/%m/%d') %></td>
+      </tr>
+     </tbody>
+    </table>
      <% if @post.customer == current_customer %>
-     <%= link_to "変更する", edit_public_post_path(@post), class: "btn btn-outline-success" %>
+      <p style="padding-left: 16px;"><%= link_to "変更する", edit_public_post_path(@post), class: "btn btn-outline-success" %></p>
      <% end %>
-       </div>
-      </div>
-     </div>
-    </div>
-  </div>
+ </div>
+</div>

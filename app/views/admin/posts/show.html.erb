@@ -11,9 +11,13 @@
             <th style="word-break: keep-all;">お酒の名前</th>
             <td><%= @post.liquor_name %></td>
           </tr>
+          <tr>
+            <th style="word-break: keep-all;">度数</th>
+            <td><%= @post.liquor_content %>%</td>
+          </tr>
           <tr>     
             <th style="word-break: keep-all;">飲んでみた感想</th>
-            <td><%= @post.comment %></td>
+            <td style= "word-break: break-word"><%= @post.comment %></td>
           </tr>
           <tr>     
             <th style="word-break: keep-all;">ジャンル</th>
