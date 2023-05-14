@@ -78,9 +78,11 @@
       <% else %>
       <% end %>
     </header>
-    <%= notice %>
-    <%= alert %>
-    <%= flash[:notice] %>
+    <% if flash[:notice] %>
+    <p class="alert alert-success"><%= notice %></p>
+    <% elsif flash[:alert] %>
+    <p class="alert alert-danger"><%= alert %></p>
+    <% end %>
     <%= yield %>
   </body>
 </html>
